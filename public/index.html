@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <title>Tablature Area - Advanced Search</title>
+  </head>
+  <body>
+    <div align="center" style="padding: 8px">
+      <img
+        src="https://tabarea.net/images/title.png"
+        alt="TabIt"
+        width="216"
+        height="59"
+      />
+    </div>
+    <div style="background: #f0f0f0; padding: 8px">
+      <div align="center">
+        <a href="http://www.tabarea.net/">TabArea Home</a>
+        <img
+          src="https://tabarea.net/images/dot.gif"
+          width="12"
+          height="8"
+          alt="|"
+        />
+        <a href="http://www.tabit.net/" target="_blank">TabIt Home</a>
+        <img
+          src="https://tabarea.net./images/dot.gif"
+          width="12"
+          height="8"
+          alt="|"
+        />
+        <a href="http://www.tabit.net/download.htm" target="_blank">Download</a>
+        <img
+          src="https://tabarea.net./images/dot.gif"
+          width="12"
+          height="8"
+          alt="|"
+        />
+        <a href="http://www.tabit.net/faq.htm" target="_blank">FAQ</a>
+        <img
+          src="https://tabarea.net./images/dot.gif"
+          width="12"
+          height="8"
+          alt="|"
+        />
+        <a href="http://www.tabit.net/register.htm" target="_blank"
+          >Register&nbsp;Online</a
+        >
+        <img
+          src="https://tabarea.net/images/dot.gif"
+          width="12"
+          height="8"
+          alt="|"
+        />
+        <a href="http://www.tabit.net/regusers.htm" target="_blank"
+          >Registered&nbsp;Users</a
+        >
+        <img
+          src="https://tabarea.net/images/dot.gif"
+          width="12"
+          height="8"
+          alt="|"
+        />
+        <b>Tablature&nbsp;Area</b>
+        <img
+          src="https://tabarea.net/images/dot.gif"
+          width="12"
+          height="8"
+          alt="|"
+        />
+        <a href="http://www.tabit.net/vb/" target="_blank">Forums</a>
+      </div>
+    </div>
+    <p></p>
+
+    <table width="100%" border="0" cellpadding="10" cellspacing="0">
+      <tbody>
+        <tr>
+          <td valign="top" bgcolor="#f0f0f0" nowrap="nowrap">
+            <a href="https://tabarea.net/tabs/index.html">Tablature Area Home</a
+            ><br />
+            <a href="https://tabarea.net/tabs/faq.php.html"
+              >Tablature Area FAQ</a
+            ><br />
+            <a href="https://tabarea.net/tabs/whatsnew.php.html">Newest Tabs</a
+            ><br />
+            <br />
+            Categories:<br />
+            •
+            <a href="https://tabarea.net/tabs/list.php@f=1.html"
+              >Popular Music</a
+            ><br />
+            •
+            <a href="https://tabarea.net/tabs/list.php@f=5.html"
+              >Originals &amp; Ind. Artists</a
+            ><br />
+            •
+            <a href="https://tabarea.net/tabs/list.php@f=6.html"
+              >Unclassified Originals</a
+            ><br />
+            • <a href="https://tabarea.net/tabs/list.php@f=4.html">Themes</a
+            ><br />
+            • <a href="https://tabarea.net/tabs/list.php@f=2.html">Classical</a
+            ><br />
+            •
+            <a href="https://tabarea.net/tabs/list.php@f=3.html"
+              >Miscellaneous</a
+            ><br />
+            <br />
+            <hr />
+            <br />
+
+            <form onsubmit="return false;">
+              Tab Search <br />
+              <input
+                type="text"
+                style="width: 113px"
+                id="tabSearch"
+                maxlength="50"
+              />
+              <button type="button" onclick="runTabSearch()">Go</button>
+            </form>
+            <form style="margin-top: 1em" onsubmit="return false;">
+              User Search <br />
+              <input
+                type="text"
+                style="width: 113px"
+                id="userSearch"
+                maxlength="50"
+              />
+              <button type="button" onclick="runUserSearch()">Go</button>
+            </form>
+            <form style="margin-top: 1em" onsubmit="return false;">
+              Folder Search <br />
+              <input
+                type="text"
+                style="width: 113px"
+                id="folderSearch"
+                maxlength="50"
+              />
+              <button type="button" onclick="runFolderSearch()">Go</button>
+            </form>
+            <script>
+              function runTabSearch() {
+                var userInput = document.getElementById("tabSearch").value;
+                window.location.href =
+                  "/search?tab=" + encodeURIComponent(userInput);
+              }
+              function runFolderSearch() {
+                var userInput = document.getElementById("folderSearch").value;
+                window.location.href =
+                  "/search?folder=" + encodeURIComponent(userInput);
+              }
+              function runUserSearch() {
+                var userInput = document.getElementById("userSearch").value;
+                window.location.href =
+                  "/search?user=" + encodeURIComponent(userInput);
+              }
+            </script>
+            <br />
+            <a href="/search">Advanced Search</a>
+          </td>
+          <!-- end modified -->
+          <td width="100%" valign="top">
+            <noscript>You need to enable JavaScript to run this app.</noscript>
+            <div id="root"></div>
+
+            <!--!
+    <hr />
+    
+    <p><a href="/all_songs.zip">Download All Songs, except "Originals &amp; Ind. Artists", as a .zip File</a> (~8.2 MB)<br />
+    <a href="/all_orig_songs.zip">Download All "Originals &amp; Ind. Artists" Songs as a .zip File</a> (~5.7 MB)<br />
+    (.zip files last updated 2002-10-16)
+    </p>
+    -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p></p>
+    <hr />
+  </body>
+</html>

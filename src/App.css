@@ -1,0 +1,256 @@
+/* tabit.net original styling */
+
+BODY {
+  background: white;
+  color: black;
+  font: small verdana, arial, sans-serif;
+  min-width: 800px;
+}
+A:link {
+  color: #0060c0;
+}
+A:visited,
+A:active {
+  color: #0080f8;
+}
+TD,
+.normal {
+  font: small verdana, arial, sans-serif;
+}
+H3,
+.big {
+  font-size: large;
+  font-weight: bold;
+}
+H4,
+.medium {
+  font-size: medium;
+  font-weight: bold;
+}
+IMG {
+  border: 0;
+}
+.small {
+  font-size: x-small;
+}
+.c1 {
+}
+.c2 {
+  background: #f4f4f4;
+}
+.hdrcell,
+.hdrcell:link,
+.hdrcell:visited,
+.hdrcell:active {
+  background: #0060c0;
+  color: white;
+}
+.flink:link,
+.flink:visited,
+.flink:active {
+  color: black;
+  text-decoration: none;
+}
+.flink:hover {
+  text-decoration: underline;
+}
+.notopmargin {
+  margin-top: 0;
+}
+
+.search-forms {
+	margin-top: 1em;
+}
+
+/* advanced search styling */
+
+/* general */
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* setup */
+
+.search-type-selector {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-method-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+}
+
+.search-parameters-wrapper {
+  margin-top: 2.2rem;
+  max-width: 60%;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  text-align: center;
+}
+
+.search-parameter input {
+  width: 67%;
+  text-align: center;
+}
+
+.search-parameter input[type="checkbox"] {
+  width: 1rem;
+}
+
+.search-parameter select {
+  padding-left: 0.75rem;
+  margin: 0 0 0.2rem 0;
+  text-align: center;
+  width: 70%;
+}
+
+.search-parameter input[type="number"] {
+  padding-left: 0.75rem;
+  margin: 0 0 0.2rem 0;
+  text-align: center;
+  width: 63%;
+}
+
+.categories-parameter {
+  text-align: left;
+  padding-left: 2.2rem;
+}
+
+.range-selector {
+  margin-bottom: 0.66rem;
+}
+
+.null-selector-text {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.run-search-button {
+  margin-top: 1rem;
+}
+
+.error-message {
+  color: red;
+  margin-top: 1rem;
+}
+
+/* results */
+
+/* "searched for" section */
+
+.searched-for-param {
+  margin: 0.5rem;
+}
+
+.n-results {
+  margin: 0.5rem 0 0.75rem 2.5rem;
+}
+
+.show-folder-descriptions {
+  margin-bottom: 1rem;
+}
+
+/* pagination */
+
+.pagination-wrapper {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 0.2rem;
+  column-gap: 0.33rem;
+}
+
+.pagination-current-page {
+  color: black;
+  font-weight: bold;
+}
+
+.pagination-links {
+  color: #0080f8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* results table */
+
+.results-table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results-table td {
+  padding: 0.2rem;
+}
+
+.results-table tr:nth-child(odd) {
+  background-color: #f4f4f4;
+}
+
+.results-table-header td {
+  color: white;
+  background-color: #0060c0;
+  cursor: pointer;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.results-table-rating-average {
+  font-size: 0.5rem;
+}
+
+.description-column {
+  width: 15%;
+}
+
+/* loading indicator */
+
+.loading-wrapper {
+  text-align: center;
+}
+
+.loading-image {
+  width: 40%;
+}
+
+.loading-text {
+  font-size: 2rem;
+}
+
+.fade {
+  animation: fade 3s linear infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
