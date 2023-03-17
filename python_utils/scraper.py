@@ -95,10 +95,6 @@ replacements = [
     {'f': 'Download all songs in this folder as a .zip file',
      'r': ''},
 
-    # all folder songs as zip
-    {'f': 'Download all songs in this folder as a .zip file',
-     'r': ''},
-
     # all user tabs as zip
     {'f': 'Download all tabs submitted by this user as a .zip file',
      'r': ''},
