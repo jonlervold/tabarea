@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# TabArea Version 2.0 (With Advanced Search)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live -> <https://tabarea.net/search>
 
-## Available Scripts
+TabArea.net was created by using WGET to scrape TabIt.net's Tablature Area.
 
-In the project directory, you can run:
+WGET simply starts on whatever link you first give it, converts it to a static HTML file, and adds every link present on that page to a list. It repeats this process for every link on the list until it has found every link on the entire website.
 
-### `npm start`
+For the Tab Area, this process resulted in ~350,000 HTML files, along with the ~44,000 TBT files.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Turning a PHP-based site into a static HTML site can break a lot of features. The most sorely-missed functionality of the scraped version was the ability to search. As one would expect, it is much more difficult to find anything on the site without it.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In early 2023, I learned how to use Puppeteer and thought it would be a perfect tool to scrape TabArea.net, examine each static HTML file, and create a proper database of all the information present on the site. Once that would be complete, I could build a search function. After announcing these plans, TabIt compatriot Ryan Leber let me know that he had already completed this task with an app he built in Python! He sent me the complete SQL dump and it was _exactly_ what I was planning on creating. That part of the work was already done! Score. Thanks Leber.
 
-### `npm test`
+Once the database was in place, there was still a lot of work to be done.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
 
-### `npm run build`
+The TabArea Advanced Search frontend is a React App. This element makes up the majority of the repo.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Advanced Search page is intended to maintain TabIt's classic Web 1.0 aesthetic. I wanted it look like it had always been a part of the site, despite being powered by React. Since the files this app searches can only be used on a desktop computer, it is designed primarily for use on PC. That said, it should still be entirely usable on mobile.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The TabArea Advanced Search backend is written in PHP. These files are in the php_backend folder.
 
-### `npm run eject`
+### Other
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The python_utils folder contains two scripts. The TabArea update plan involved removing various site functions that were no longer operational after the site had been converted to static HTML files. With these broken elements removed, hundreds of thousands of the HTML files serve absolutely no purpose.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The first script deletes all the unnecessary files. This was a necessity because my OS gets _very_ unhappy if I try to manipulate a folder of that size using normal methods. It makes sense to run this script first so that the second script doesn't waste time processing files that will just end up deleted.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The second script is a find and replace function. The update involved changing identical HTML elements of the remaining 100k files. This removes the broken functions, modifies the header, and adds the new search functions to the sidebar. Imagining changing that many files manually makes my head hurt.
